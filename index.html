@@ -1,13 +1,22 @@
 <style>
+    :root{
+        --primary-color: #EBDDCF;
+        --secondary-color: #F25E0D;
+        --background-color: #121212;
+    }
     @font-face {
-        src: url(Fonts/NeueMontreal-Light.otf);
         font-family: "Neue Montreal Light";
+        src: url(Fonts/NeueMontreal-Light.otf);
+    }
+    @font-face{
+        font-family: "The Good";
+        src: url(Fonts/The-Good.otf);
     }
     body{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        background-color: #121212;
+        background-color: var(--background-color);
     }
     .container{
         display: flex;
@@ -20,7 +29,7 @@
     .container .before-title{
         font-size: 1.5vw;
         font-family: "The Good", "Sans Serif Collection", sans-serif;
-        color: #F25E0D;
+        color: var(--secondary-color);
         text-transform: uppercase;
         position: relative;
         left: -25.3vw;
@@ -31,17 +40,17 @@
         font-size: 15vw;
         text-align: center;
         text-transform: uppercase;
-        color: #F25E0D;
+        color: var(--secondary-color);
         margin-bottom: -2vw;
     }
     .container .text1, .container .text2{
-        border: 1px solid #EBDDCF;
+        border: 1px solid var(--primary-color);
 
         font-size: 1.5vw;
         font-family: "Neue Montreal Light", "Helvetica Neue", sans-serif;
         text-transform: uppercase;
         padding: 28px;
-        color: #EBDDCF;
+        color: var(--primary-color);
     }
     .grid-container{
         display: grid;
@@ -51,22 +60,227 @@
         width: 45vw;
         text-align: justify
     }
+    .mode{
+        position: fixed;
+        font-family: "The Good", sans-serif;
+        color: var(--primary-color);
+        right: 50px;
+        bottom: 50px;
+        font-size: 2vw;
+        cursor: pointer;
+        user-select: none;
+        padding: 10px 0.7vw 10px 1vw;
+        transition: color 0.3s ease;
+
+        border-radius: 100px;
+        border: 1px solid var(--primary-color);
+    }
+    .mode:hover{
+        color: var(--secondary-color);
+    }
+    #contact-text{
+        position: fixed;
+        font-family: "The Good", sans-serif;
+        color: var(--primary-color);
+        left: 50px;
+        bottom: 50px;
+        font-size: 2vw;
+        cursor: pointer;
+        user-select: none;
+        padding: 10px 0.7vw 10px 1vw;
+        transition: color 0.3s ease;
+
+        border-radius: 100px;
+        border: 1px solid var(--primary-color);
+    }
+    #contact-text:hover{
+        color: var(--secondary-color);
+    }
+    .wrapper{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .wrapper h1{
+        margin-top: 60px;
+        font-family: "The Good", sans-serif;
+        font-size: 5vw;
+        font-weight: 500;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .wrapper .image-container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 25px;
+    }
+    .wrapper .image-container img{
+        width: 45vw;
+        padding: 5px;
+        border: 1px solid var(--primary-color);
+    }
+    .wrapper{
+        overflow: hidden;
+    }
+    .wrapper .news-ticker h1{
+        margin-top: 120px;
+    }
+    .wrapper .news-ticker p{
+        color: var(--primary-color);
+        text-transform: uppercase;
+        font-size: 5vw;
+        font-family: "Neue Montreal Bold", sans-serif;
+        font-weight: bold;
+        white-space: nowrap;
+        margin-top: -0.5%;
+        margin-bottom: 0.5%;
+        text-align: center;
+    }
+    .wrapper .news-ticker p:nth-child(2){
+        font-family: "Neue Montreal Light", sans-serif;
+        animation: news-one 10s linear infinite;
+        border-top: 1px solid var(--primary-color);
+    }
+    .wrapper .news-ticker p:nth-child(3){
+        animation: news-two 25s linear infinite;
+        border-bottom: 1px solid var(--primary-color);
+    }
+    @keyframes news-one{
+        0%{
+            transform: translateX(-61.5vw)
+        }
+        100%{
+            transform: translateX(0)
+        }
+    }
+    @keyframes news-two{
+        0%{
+            transform: translateX(0)
+        }
+        100%{
+            transform: translateX(-208.7vw)
+        }
+    }
+    .footer-container{
+        border-top: 1px solid var(--primary-color);
+        display: flex;
+        align-items: center;
+        margin-top: 160px;
+    }
+    .footer-container h1{
+        margin-right: auto;
+        margin-left: 110px;
+
+        font-family: "Neue Montreal Light", sans-serif;
+        color: var(--primary-color);
+        user-select: none;
+    }
+    .footer-container ul{
+        margin-right: 110px;
+        font-family: "Neue Montreal", sans-serif;
+        color: var(--primary-color);
+    }
+    .footer-container ul li{
+        display: inline-block;
+        padding: 10px;
+        cursor: pointer;
+    }
+    .footer-container ul li a{
+        color: inherit;
+        text-decoration: inherit;
+    }
+    .footer-container ul li i{
+        margin-right: 5px;
+        transition: color 0.3s ease;
+    }
+    .footer-container ul li:hover i{
+         color: var(--secondary-color);
+     }
+    @media (max-width: 845px){
+        .wrapper .image-container{
+            grid-template-columns: repeat(1,1fr);
+        }
+        .wrapper .image-container img{
+            width: 85vw;
+        }
+    }
+
 </style>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Andre's Portfolio</title>
 </head>
+
 <body>
+
     <div class="container">
-        <div class="before-title">Based in Metro Manila, Las Piñas</div>
+        <div class="before-title">Based in Metro Manila Las Piñas</div>
         <div class="title">Portfolio</div>
         <div class="grid-container">
             <div class="text1">Hello, my name is André. I am a computer science student, This website is  everything i have designed so far.</div>
             <div class="text2">Front-end development <br>UI/UX Design</div>
         </div>
     </div>
+
+    <div class="wrapper">
+        <h1>UI/UX Designs</h1>
+
+        <div class="image-container">
+            <img src="UI_UX_Designs/Bread%20Shop%20Landing%20Page.jpg" alt="Bread Shop Landing Page">
+            <img src="UI_UX_Designs\Design Agency Landing Page.jpg" alt="Design Agency Landing Page">
+            <img src="UI_UX_Designs\Ford Landing Page.png" alt="Ford Landing Page">
+            <img src="UI_UX_Designs\Pepsi Landing Page.jpg" alt="Pepsi Landing Page">
+            <img src="UI_UX_Designs\Photographer Landing Page Desktop.png" alt="Photographer Landing Page">
+            <img src="UI_UX_Designs\History Museum Landing Page.png" alt="History Museum Landing Page">
+            <img src="UI_UX_Designs\Undrafted Landing Page.png" alt="">
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="news-ticker">
+            <h1>Skills</h1>
+            <p>Creative ui/ux design creative ui/ux design creative ui/ux design creative ui/ux design creative ui/ux design creative ui/ux</p>
+            <p>Adobe photoshop axure affinity designer webstorm adobe illustrator Adobe photoshop axure affinity designer webstorm adobe illustrator Adobe photoshop axure affinity designer webstorm adobe illustrator</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <h1>Jay Andre P. Rojas</h1>
+            <ul>
+                <li>
+                    <a href="https://www.instagram.com/andrexxrojas/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                        Instagram
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/andrexxrojas" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                        Github
+                    </a>
+
+                </li>
+                <li>
+                    <a href="https://codepen.io/qwoprojas" target="_blank">
+                        <i class="fa-brands fa-codepen"></i>
+                        Codepen
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="mode" onclick="changeMode()">Dark</div>
+    <div id="contact-text" onclick="copyText()">Contact Me</div>
 </body>
+
+<script src="gsap.min.js"></script>
+<script src="app.js"></script>
 </html>
